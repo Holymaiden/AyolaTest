@@ -1,79 +1,62 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native OTP Authentication App
 
-# Getting Started
+## Introduction
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+This repository contains a simple React Native app designed for user authentication using a one-time password (OTP). The test instructions are outlined in this document. I focused on showcasing my coding skills without relying on external packages like react-native-otp-input.
 
-## Step 1: Start the Metro Server
+## Implementation Details
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### Registration Page
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Create a page for user registration with the following details:
 
-```bash
-# using npm
-npm start
+- Username and password input fields.
+- Validation criteria for the password:
+  1. Must contain at least 8 characters.
+  2. Must contain at least one lowercase letter.
+  3. Must contain at least one uppercase letter.
+  4. Must contain at least one symbol.
+  5. Email validation.
 
-# OR using Yarn
-yarn start
-```
+After the user submits the registration data, redirect them to the OTP page.
 
-## Step 2: Start your Application
+### OTP Page
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Create a page where users can input a 6-digit OTP:
 
-### For Android
+1. Assume the correct OTP is `111111`.
+2. Implement a 30-second countdown before the "resend" button becomes clickable.
+3. The "resend" button should refresh the timer.
+4. The focus should automatically move to the right as the user inputs the number and move to the left when the user uses the backspace key.
+5. Upon submitting the correct OTP, store the username/password locally and redirect the user to the login page.
 
-```bash
-# using npm
-npm run android
+### Login Page
 
-# OR using Yarn
-yarn android
-```
+If a user successfully logs in with the registered username and password, they should be directed to a "Welcome" page with a logout button.
 
-### For iOS
+## Installation
 
-```bash
-# using npm
-npm run ios
+1. Clone this repository.
 
-# OR using Yarn
-yarn ios
-```
+   ```bash
+   git clone https://github.com/your-username/react-native-otp-auth.git
+   ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+2. Install dependencies.
+   ```bash
+   cd react-native-otp-auth
+   npm install
+   ```
+3. Run the app on an emulator or device.
+   ```bash
+   npx react-native run-android  # For Android
+   npx react-native run-ios      # For iOS
+   ```
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Additional Notes
 
-## Step 3: Modifying your App
+- I've adhered to React Native best practices and coding standards throughout the implementation.
+- I've included clear and concise comments in the code to enhance readability.
+- If there are any specific features or improvements you'd like me to consider, please let me know.
 
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Thank you for the opportunity to showcase my skills. If you have any questions or feedback, I'm eager to discuss them further.
